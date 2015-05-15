@@ -15,6 +15,7 @@ $(INSTALLED_BOOTIMAGE_TARGET): $(MKBOOTIMG) $(INTERNAL_BOOTIMAGE_FILES) $(INSTAL
 ## Overload recoveryimg generation: Same as the original, + --dt arg
 $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) $(INSTALLED_DTIMAGE_TARGET) \
 		$(recovery_ramdisk) \
+		$(recovery_uncompressed_ramdisk) \
 		$(recovery_kernel)
 	@echo -e ${CL_GRN}"----- Compressing recovery ramdisk with lzma ------"${CL_RST}
 	$(hide) rm -f $(OUT)/ramdisk-recovery.cpio.lzma
